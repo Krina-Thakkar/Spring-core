@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--  for setter injection
+    <bean id="student" class="com.company.Student">
+        <property name="studentname" value="Krina Thakkar"></property>
+        <property name="id" value="1"></property>
+    </bean>
+
+    <bean id="student2" class="com.company.Student">
+        <property name="studentname" value="Kalp Thakkar"></property>
+        <property name="id" value="2"></property>
+    </bean>
+
+    -->
+
+    <!-- we are just letting spring know what are arguments in our constructor for constructor injection -->
+    <bean id="student" class="com.company.Student">
+        <constructor-arg name="studentname" value="Krina Thakkar" type="java.lang.String"></constructor-arg>
+        <constructor-arg name="id" value="1" type="int"></constructor-arg>
+    </bean>
+
+    <bean id="student2" class="com.company.Student">
+        <constructor-arg name="id" value="1" type="int"></constructor-arg>
+    </bean>
+
+
+</beans>
