@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="mathCheatObjectValue" class="com.company.MathCheat"></bean>
+    <bean id="scienceCheatObjectValue" class="com.company.ScienceCheat"></bean>
+    <bean id="javaCheatObjectValue" class="com.company.JavaCheat"></bean>
+
+    <bean id="stud" class="com.company.Student">
+        <!-- spring will give us mathCheat object whenever we need it when we use ref tag -->
+        <property name="cheat" ref="javaCheatObjectValue"/>
+    </bean>
+
+</beans>
