@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="DataServ" class="com.company.DataService"/>
+    <bean id="HelloTuneServ" class="com.company.HelloTuneService"/>
+    <bean id="MissedCallAlertServ" class="com.company.MissedCallAlertService"/>
+
+    <bean id="airtel" class="com.company.Airtel">
+        <property name="service" ref="DataServ"/>
+    </bean>
+
+</beans>
