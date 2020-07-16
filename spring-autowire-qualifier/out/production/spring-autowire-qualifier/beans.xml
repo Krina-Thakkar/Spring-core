@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- this is to make autowired property ON; by default it will be off -->
+    <context:annotation-config/>
+
+    <!-- here bytype and byName both fails cz spring is confused so we need to use @Qualifier in Java code -->
+    <bean id="humanHeart" class="com.company.autowire.Heart">
+        <property name="nameOfAnimal" value="Human"></property>
+        <property name="noOfHeart" value="1"></property>
+    </bean>
+    <bean id="octopusHeart" class="com.company.autowire.Heart">
+        <property name="nameOfAnimal" value="Octopus"></property>
+        <property name="noOfHeart" value="3"></property>
+    </bean>
+
+    <!-- Instead of configuring autowire in xml, we can also configure autowiring at Java side using @Autowired -->
+    <bean id="human" class="com.company.autowire.Human">
+        <!-- <bean id="human" class="com.company.autowire.Human" autowire="byType"> -->
+        <!-- While creating Human class objectany dependency present in Human class meets autowire="byName"; inject those beans to their respective dependency -->
+        <!-- byName: Heart class reference variable (heart) name and bean id name (heart) should match-->
+        <!-- byType: The type of variable(Heart) and the type of bean(class-Heart) should match -->
+        <!-- constructor: object will directly get injected through constructor...constructor needs to be present in Human class -->
+        <!-- <property name="heart" ref="heart"/> -->
+    </bean>
+
+</beans>
