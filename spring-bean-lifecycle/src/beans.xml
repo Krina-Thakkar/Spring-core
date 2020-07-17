@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd"
+       default-init-method="createConnection"
+       default-destroy-method="closeConnection"
+>
+
+     <context:annotation-config></context:annotation-config>
+  <!--  <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"></bean> -->
+    <!-- we can use the above line instead of context:annotation-config; we can use this to activate postconstruct and predestroy annotation -->
+
+  <!--  <bean id="studentinfo" class="com.company.kt.StudentDAO" init-method="createConnection" destroy-method="closeConnection"> -->
+    <!-- instead of writing init-method and destroy-method for every class we can configure it in Bean as default-init-method and default-destroy-method -->
+    <bean id="studentinfo" class="com.company.kt.StudentDAO">
+        <property name="driver" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/student"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="Ramsita1@"></property>
+    </bean>
+
+   <!-- <bean id="hello" class="com.company.kt.Hello" init-method="createConnection" destroy-method="closeConnection"></bean>-->
+    <bean id="hello" class="com.company.kt.Hello"></bean>
+
+</beans>
